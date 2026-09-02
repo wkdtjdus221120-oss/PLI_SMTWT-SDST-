@@ -23,6 +23,7 @@ class MetaheuristicResult:
     runtime_seconds: float
     objective_evaluations: int
     iterations: int
+    history: tuple[tuple[float, int], ...]
 
 
 def initialize_search(
@@ -51,7 +52,7 @@ def initialize_search(
 
     start = time.perf_counter()
     deadline = start + time_limit if time_limit is not None else None
-    control = SearchControl(instance, deadline, max_evaluations)
+    control = SearchControl(instance, deadline, max_evaluations, start_time=start)
 
     initial_sequence, atcs_parameters = generate_atcs_sequence(instance)
     initial_objective = control.evaluate(initial_sequence)
@@ -79,6 +80,7 @@ def finish_result(
         runtime_seconds=time.perf_counter() - start,
         objective_evaluations=control.evaluations,
         iterations=iterations,
+        history=tuple(control.history),
     )
 
 

@@ -53,6 +53,7 @@ class SearchResult:
     runtime_seconds: float
     objective_evaluations: int
     atcs_parameters: ATCSParameters
+    history: tuple[tuple[float, int], ...]
 
 
 @dataclass(frozen=True)
@@ -336,11 +337,16 @@ class SearchControl:
         instance: WTSDSInstance,
         deadline: float | None,
         max_evaluations: int | None,
+        *,
+        start_time: float | None = None,
     ) -> None:
         self.instance = instance
         self.deadline = deadline
         self.max_evaluations = max_evaluations
+        self.start_time = time.perf_counter() if start_time is None else start_time
         self.evaluations = 0
+        self.best_objective: int | None = None
+        self.history: list[tuple[float, int]] = []
 
     def exhausted(self) -> bool:
         time_exhausted = (
@@ -354,7 +360,12 @@ class SearchControl:
 
     def evaluate(self, sequence: Sequence[int]) -> int:
         self.evaluations += 1
-        return _objective_unchecked(sequence, self.instance)
+        objective = _objective_unchecked(sequence, self.instance)
+        if self.best_objective is None or objective < self.best_objective:
+            self.best_objective = objective
+            elapsed = 0.0 if not self.history else time.perf_counter() - self.start_time
+            self.history.append((elapsed, int(objective)))
+        return objective
 
 
 BestMove = Callable[
@@ -537,7 +548,7 @@ def solve_gvns(
 
     start = time.perf_counter()
     deadline = start + time_limit if time_limit is not None else None
-    control = SearchControl(instance, deadline, max_evaluations)
+    control = SearchControl(instance, deadline, max_evaluations, start_time=start)
     rng = random.Random(seed)
 
     initial_sequence, atcs_parameters = generate_atcs_sequence(instance)
@@ -589,6 +600,7 @@ def solve_gvns(
         runtime_seconds=runtime,
         objective_evaluations=control.evaluations,
         atcs_parameters=atcs_parameters,
+        history=tuple(control.history),
     )
 
 
