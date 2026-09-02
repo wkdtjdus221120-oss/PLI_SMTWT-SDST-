@@ -1,0 +1,32 @@
+Validation performed before delivery
+===================================
+
+1. Syntax validation
+   - `python -m py_compile *.py`
+   - Result: PASS
+
+2. Integrated execution test
+   - Ran `run_all.py` on a generated local SMTWT-SDST instance.
+   - SA, GA, TS, ACO, DPSO, and DDE all completed successfully.
+
+3. Individual runner test
+   - Executed run_sa.py, run_ga.py, run_ts.py, run_aco.py,
+     run_dpso.py, and run_dde.py separately.
+   - Result: PASS for all six runners.
+
+4. Randomized smoke tests
+   - Tested multiple randomly generated instances of different sizes.
+   - Verified for every algorithm:
+       * returned sequence is a valid permutation,
+       * reported objective equals total_weighted_tardiness(sequence, instance),
+       * objective-evaluation budget is not exceeded.
+   - Result: PASS.
+
+5. Zero-setup edge case
+   - Verified ATCS and all six metaheuristics on an instance with setup times = 0.
+   - Result: PASS.
+
+Note
+----
+These tests validate implementation consistency and runtime robustness. They do not
+prove that the default hyperparameters are optimal for the 120 Cicirello benchmarks.
