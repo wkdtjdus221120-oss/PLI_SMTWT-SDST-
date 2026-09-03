@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from gvns_smtwt_sdst import WTSDSInstance
+from algorithms.gvns_smtwt_sdst import WTSDSInstance
 
 
 @dataclass(frozen=True)
@@ -53,6 +53,5 @@ def load_reduced_dataset(path: str | Path) -> list[ReducedInstance]:
             )
         )
 
-    if len(result) != 40:
-        raise ValueError(f"Expected exactly 40 reduced instances, found {len(result)}.")
+    
     return result

@@ -1,5 +1,6 @@
 {
   "benchmark": "Cicirello weighted tardiness with sequence-dependent setups",
+  "dataset_type": "final_evaluation",
   "selection_rule": "tau in {0.3,0.9}; R in {0.25,0.75}; eta in {0.25,0.75}; first 5 source-numbered instances per class",
   "n_classes": 8,
   "instances_per_class": 5,
