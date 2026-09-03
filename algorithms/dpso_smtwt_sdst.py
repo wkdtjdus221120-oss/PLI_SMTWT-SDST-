@@ -3,8 +3,8 @@ from __future__ import annotations
 import random
 from dataclasses import dataclass
 
-from gvns_smtwt_sdst import WTSDSInstance
-from metaheuristic_common import (
+from .gvns_smtwt_sdst import WTSDSInstance
+from .metaheuristic_common import (
     MetaheuristicResult,
     difference_position_swaps,
     finish_result,

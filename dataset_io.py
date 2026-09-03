@@ -32,12 +32,12 @@ def _to_problem(row: dict) -> WTSDSInstance:
     )
 
 
-def load_reduced_dataset(path: str | Path) -> list[ReducedInstance]:
+def load_dataset(path: str | Path) -> list[ReducedInstance]:
     path = Path(path)
     payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get("instances")
     if not isinstance(rows, list):
-        raise ValueError("Reduced dataset JSON must contain an 'instances' list.")
+        raise ValueError("Dataset JSON must contain an 'instances' list.")
 
     result: list[ReducedInstance] = []
     for row in rows:

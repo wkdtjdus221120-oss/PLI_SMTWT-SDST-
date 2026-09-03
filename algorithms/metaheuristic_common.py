@@ -5,7 +5,7 @@ import time
 from dataclasses import dataclass
 from typing import Sequence
 
-from gvns_smtwt_sdst import (
+from .gvns_smtwt_sdst import (
     ATCSParameters,
     SearchControl,
     WTSDSInstance,

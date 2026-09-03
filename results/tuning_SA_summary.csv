@@ -1,0 +1,4 @@
+﻿algorithm,config_id,cooling_rate,population_size,mutation_rate,tournament_size,tabu_tenure,neighborhood_sample,differential_weight,swarm_size,inertia_probability,n_runs,mean_improvement_vs_ATCS,std_improvement_vs_ATCS,mean_best_twt,mean_runtime_sec
+SA,SA_CR0p99,0.99,,,,,,,,,24,36.55364458,42.05575814,235887.375000,8.750984
+SA,SA_CR0p95,0.95,,,,,,,,,24,34.92841922,42.40949037,237218.833333,4.124391
+SA,SA_CR0p9,0.9,,,,,,,,,24,33.75729209,43.08764705,237645.125000,2.023622

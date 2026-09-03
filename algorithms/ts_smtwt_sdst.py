@@ -3,8 +3,8 @@ from __future__ import annotations
 import itertools
 import random
 
-from gvns_smtwt_sdst import WTSDSInstance
-from metaheuristic_common import MetaheuristicResult, finish_result, initialize_search
+from .gvns_smtwt_sdst import WTSDSInstance
+from .metaheuristic_common import MetaheuristicResult, finish_result, initialize_search
 
 
 def solve_ts(

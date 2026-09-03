@@ -3,8 +3,8 @@ from __future__ import annotations
 import math
 import random
 
-from gvns_smtwt_sdst import WTSDSInstance
-from metaheuristic_common import MetaheuristicResult, finish_result, initialize_search
+from .gvns_smtwt_sdst import WTSDSInstance
+from .metaheuristic_common import MetaheuristicResult, finish_result, initialize_search
 
 
 def _weighted_log_choice(

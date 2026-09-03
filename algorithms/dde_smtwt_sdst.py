@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import random
 
-from gvns_smtwt_sdst import WTSDSInstance
-from metaheuristic_common import (
+from .gvns_smtwt_sdst import WTSDSInstance
+from .metaheuristic_common import (
     MetaheuristicResult,
     apply_job_swaps,
     difference_job_swaps,
