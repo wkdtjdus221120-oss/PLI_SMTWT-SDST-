@@ -1,0 +1,7 @@
+﻿algorithm,config_id,cooling_rate,population_size,mutation_rate,tournament_size,tabu_tenure,neighborhood_sample,differential_weight,swarm_size,inertia_probability,n_runs,mean_improvement_vs_ATCS,std_improvement_vs_ATCS,mean_best_twt,mean_runtime_sec
+DPSO,DPSO_S50_W0p7,,,,,,,,50,0.7,24,33.22152572,40.58111528,237666.541667,8.624035
+DPSO,DPSO_S50_W0p5,,,,,,,,50,0.5,24,32.96167389,42.47810129,237880.291667,7.991558
+DPSO,DPSO_S50_W0p3,,,,,,,,50,0.3,24,32.72453809,41.91351545,237961.583333,8.232685
+DPSO,DPSO_S30_W0p5,,,,,,,,30,0.5,24,32.25898735,42.35543166,237901.625000,8.471246
+DPSO,DPSO_S30_W0p7,,,,,,,,30,0.7,24,31.82620489,42.81849879,237933.125000,8.425625
+DPSO,DPSO_S30_W0p3,,,,,,,,30,0.3,24,31.55523959,42.26381261,238033.125000,8.532512

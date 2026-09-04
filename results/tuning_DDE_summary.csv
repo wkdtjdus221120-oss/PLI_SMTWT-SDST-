@@ -1,0 +1,7 @@
+﻿algorithm,config_id,cooling_rate,population_size,mutation_rate,tournament_size,tabu_tenure,neighborhood_sample,differential_weight,swarm_size,inertia_probability,n_runs,mean_improvement_vs_ATCS,std_improvement_vs_ATCS,mean_best_twt,mean_runtime_sec
+DDE,DDE_P50_F0p6,,50,,,,,0.6,,,24,20.42037377,30.69019483,237923.625000,9.473989
+DDE,DDE_P30_F0p4,,30,,,,,0.4,,,24,16.35591013,29.02151284,238452.375000,9.184684
+DDE,DDE_P30_F0p6,,30,,,,,0.6,,,24,11.72686274,22.57382267,238330.583333,9.617215
+DDE,DDE_P50_F0p4,,50,,,,,0.4,,,24,11.41337993,23.36355499,238406.208333,9.601004
+DDE,DDE_P30_F0p8,,30,,,,,0.8,,,24,8.49729359,16.44051759,238203.916667,10.000022
+DDE,DDE_P50_F0p8,,50,,,,,0.8,,,24,6.18459996,20.43869209,239373.916667,9.946413

@@ -1,0 +1,7 @@
+﻿algorithm,config_id,cooling_rate,population_size,mutation_rate,tournament_size,tabu_tenure,neighborhood_sample,differential_weight,swarm_size,inertia_probability,n_runs,mean_improvement_vs_ATCS,std_improvement_vs_ATCS,mean_best_twt,mean_runtime_sec
+TS,TS_TT5_CS300,,,,,5,300,,,,24,36.26606520,42.07430513,236943.916667,7.514672
+TS,TS_TT10_CS300,,,,,10,300,,,,24,35.41635478,42.21261152,236917.666667,7.512528
+TS,TS_TT20_CS300,,,,,20,300,,,,24,35.36444639,42.36588362,236875.333333,7.516381
+TS,TS_TT5_CS150,,,,,5,150,,,,24,34.71439590,42.41833689,236844.541667,7.514098
+TS,TS_TT10_CS150,,,,,10,150,,,,24,34.37527252,42.57201830,236891.625000,7.514056
+TS,TS_TT20_CS150,,,,,20,150,,,,24,33.01677479,42.92574035,236986.750000,7.518029
