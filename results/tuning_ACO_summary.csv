@@ -1,0 +1,9 @@
+﻿algorithm,config_id,cooling_rate,population_size,mutation_rate,tournament_size,tabu_tenure,neighborhood_sample,differential_weight,swarm_size,inertia_probability,alpha,beta,evaporation_rate,n_runs,mean_improvement_vs_ATCS,std_improvement_vs_ATCS,mean_best_twt,mean_runtime_sec
+ACO,ACO_A1_B2_ER0p1,,,,,,,,,,1,2,0.1,24,36.47484096,40.78564214,235910.416667,8.411829
+ACO,ACO_A1_B4_ER0p1,,,,,,,,,,1,4,0.1,24,36.27994218,39.62635036,233302.375000,8.467221
+ACO,ACO_A1_B4_ER0p3,,,,,,,,,,1,4,0.3,24,35.19855103,39.51276557,234741.500000,8.760492
+ACO,ACO_A1_B2_ER0p3,,,,,,,,,,1,2,0.3,24,34.73046387,40.33816220,237129.750000,8.377384
+ACO,ACO_A2_B4_ER0p1,,,,,,,,,,2,4,0.1,24,33.34404048,37.09584245,235072.000000,8.755393
+ACO,ACO_A2_B2_ER0p1,,,,,,,,,,2,2,0.1,24,32.51677279,39.76944219,237747.750000,8.344513
+ACO,ACO_A2_B2_ER0p3,,,,,,,,,,2,2,0.3,24,32.05165646,39.35742604,237950.500000,8.756975
+ACO,ACO_A2_B4_ER0p3,,,,,,,,,,2,4,0.3,24,30.78666161,37.05140524,236883.833333,8.755106

@@ -29,8 +29,9 @@ SOLVERS = {
 }
 
 # These algorithms are tuned by run_tuning.py.
-# ACO and GVNS use the defaults already defined in their solver files.
+# GVNS uses the defaults already defined in its solver file.
 TUNED_ALGORITHMS = {
+    "ACO",
     "SA",
     "GA",
     "TS",
@@ -217,7 +218,7 @@ def _validate_tuned_params(
     Prevent an accidental final experiment with untuned defaults.
 
     Only SA, GA, TS, DDE, and DPSO are required to have tuned entries.
-    ACO and GVNS intentionally keep their solver defaults.
+    GVNS intentionally keeps its solver defaults.
     """
 
     required = [
@@ -408,7 +409,7 @@ def _run_one(
     solver = SOLVERS[algorithm]
 
     # Tuned algorithms receive the parameter combination selected by
-    # run_tuning.py. ACO and GVNS have no entry and therefore use defaults.
+    # run_tuning.py. GVNS has no entry and therefore uses defaults.
     params = best_params.get(
         algorithm,
         {},

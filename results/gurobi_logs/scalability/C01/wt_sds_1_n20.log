@@ -1,0 +1,33 @@
+
+Gurobi 13.0.3 (win64) logging started Tue Sep  8 21:21:25 2026
+
+Set parameter LogFile to value "results\gurobi_logs\scalability\C01\wt_sds_1_n20.log"
+Gurobi Optimizer version 13.0.3 build v13.0.3rc0 (win64 - Windows 10.0 (19045.2))
+
+CPU model: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+
+Non-default parameters:
+TimeLimit  300
+MIPGap  0
+
+Optimize a model with 14520 rows, 7660 columns and 44200 nonzeros (Min)
+Model fingerprint: 0x03145923
+Model has 17 linear objective coefficients
+Variable types: 40 continuous, 7620 integer (7620 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 3e+03]
+  Objective range  [1e+00, 1e+01]
+  Bounds range     [1e+00, 3e+03]
+  RHS range        [1e+00, 5e+03]
+
+Loaded user MIP start with objective 0
+
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds (0.00 work units)
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 0 
+
+Optimal solution found (tolerance 0.00e+00)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%

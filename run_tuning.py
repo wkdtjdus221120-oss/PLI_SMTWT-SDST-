@@ -7,6 +7,7 @@ from itertools import product
 from pathlib import Path
 from statistics import mean, stdev
 
+from algorithms.aco_smtwt_sdst import solve_aco
 from algorithms.dde_smtwt_sdst import solve_dde
 from algorithms.dpso_smtwt_sdst import solve_dpso
 from algorithms.ga_smtwt_sdst import solve_ga
@@ -20,6 +21,7 @@ from dataset_io import ReducedInstance, load_dataset
 # -----------------------------------------------------------------------------
 
 SOLVERS = {
+    "ACO": solve_aco,
     "SA": solve_sa,
     "GA": solve_ga,
     "TS": solve_ts,
@@ -37,12 +39,17 @@ SOLVERS = {
 #   TS   : 3 x 2     = 6
 #   DDE  : 2 x 3     = 6
 #   DPSO : 2 x 3     = 6
+#   ACO  : 2 x 2 x 2 = 8 (8 instances x 3 seeds = 192 runs)
 #
 # With 8 tuning instances, 3 seeds, and 10 sec/run:
 # one configuration = 8 x 3 x 10 sec = about 4 minutes of search time.
 # -----------------------------------------------------------------------------
 
 PARAM_GRIDS: dict[str, list[dict[str, int | float]]] = {
+    "ACO": [
+        {"alpha": alpha, "beta": beta, "evaporation_rate": evaporation_rate}
+        for alpha, beta, evaporation_rate in product((1, 2), (2, 4), (0.1, 0.3))
+    ],
     "SA": [
         {"cooling_rate": cooling_rate}
         for cooling_rate in (0.90, 0.95, 0.99)
@@ -112,6 +119,9 @@ PARAM_COLUMNS = [
     "differential_weight",
     "swarm_size",
     "inertia_probability",
+    "alpha",
+    "beta",
+    "evaporation_rate",
 ]
 
 RAW_FIELDS = [
@@ -166,6 +176,9 @@ def _config_id(algorithm: str, params: dict[str, int | float]) -> str:
         "differential_weight": "F",
         "swarm_size": "S",
         "inertia_probability": "W",
+        "alpha": "A",
+        "beta": "B",
+        "evaporation_rate": "ER",
     }
 
     pieces = [algorithm]
@@ -179,6 +192,21 @@ def _ensure_header(path: Path, fields: list[str], overwrite: bool) -> None:
     if overwrite or not path.exists():
         with path.open("w", newline="", encoding="utf-8-sig") as handle:
             csv.DictWriter(handle, fieldnames=fields).writeheader()
+    else:
+        # Upgrade older tuning CSVs before appending rows with new parameter columns.
+        with path.open("r", newline="", encoding="utf-8-sig") as handle:
+            reader = csv.DictReader(handle)
+            if reader.fieldnames == fields:
+                return
+            if set(reader.fieldnames or []) - set(fields):
+                raise ValueError(f"Unexpected tuning CSV columns in {path}")
+            rows = list(reader)
+        temporary = path.with_suffix(path.suffix + ".tmp")
+        with temporary.open("w", newline="", encoding="utf-8-sig") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(rows)
+        temporary.replace(path)
 
 
 def _completed_keys(path: Path) -> set[tuple[str, str, int]]:
@@ -539,7 +567,7 @@ def main() -> None:
         "--algorithm",
         required=True,
         choices=[*SOLVERS.keys(), "ALL"],
-        help="Algorithm to tune: SA, GA, TS, DDE, DPSO, or ALL.",
+        help="Algorithm to tune: ACO, SA, GA, TS, DDE, DPSO, or ALL.",
     )
 
     parser.add_argument(

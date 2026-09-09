@@ -1,0 +1,74 @@
+
+Gurobi 13.0.3 (win64) logging started Tue Sep  8 20:55:09 2026
+
+Set parameter LogFile to value "results\gurobi_logs\wt_sds_11.log"
+Gurobi Optimizer version 13.0.3 build v13.0.3rc0 (win64 - Windows 10.0 (19045.2))
+
+CPU model: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+
+Non-default parameters:
+TimeLimit  300
+MIPGap  0
+
+Optimize a model with 417960 rows, 212580 columns and 1260600 nonzeros (Min)
+Model fingerprint: 0x247a0169
+Model has 56 linear objective coefficients
+Variable types: 120 continuous, 212460 integer (212460 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 2e+04]
+  Objective range  [1e+00, 1e+01]
+  Bounds range     [1e+00, 2e+04]
+  RHS range        [1e+00, 2e+04]
+
+Loaded user MIP start with objective 16772
+
+Presolve removed 4 rows and 4 columns
+Presolve time: 2.22s
+Presolved: 417956 rows, 212576 columns, 1260592 nonzeros
+Variable types: 116 continuous, 212460 integer (212460 binary)
+
+Deterministic concurrent LP optimizer: primal simplex, dual simplex, and barrier
+Showing barrier log only...
+
+Root barrier log...
+
+Ordering time: 1.92s
+
+Barrier performed 0 iterations in 10.39 seconds (5.30 work units)
+Barrier solve interrupted - model solved by another algorithm
+
+Concurrent spin time: 2.79s (can be avoided by choosing Method=3)
+
+Solved with dual simplex
+
+Root relaxation: objective 0.000000e+00, 1318 iterations, 6.22 seconds (1.64 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0  194 16772.0000    0.00000   100%     -   13s
+     0     0    0.00000    0  229 16772.0000    0.00000   100%     -   22s
+     0     0    0.00000    0  180 16772.0000    0.00000   100%     -   26s
+     0     0    0.00000    0  215 16772.0000    0.00000   100%     -   30s
+     0     0    0.00000    0  215 16772.0000    0.00000   100%     -   40s
+     0     0    0.00000    0  197 16772.0000    0.00000   100%     -   45s
+     0     0    0.00000    0  220 16772.0000    0.00000   100%     -   50s
+     0     0    0.00000    0  220 16772.0000    0.00000   100%     -   71s
+     0     0    0.00000    0  204 16772.0000    0.00000   100%     -   78s
+     0     0    0.00000    0  204 16772.0000    0.00000   100%     -   90s
+     0     0    0.00000    0  204 16772.0000    0.00000   100%     -   90s
+     0     0    0.00000    0  204 16772.0000    0.00000   100%     -  102s
+
+Cutting planes:
+  Implied bound: 4
+  RLT: 1529
+  PSD: 2
+
+Explored 1 nodes (37054 simplex iterations) in 104.40 seconds (95.93 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 1: 16772 
+
+Solve interrupted
+Best objective 1.677200000000e+04, best bound 0.000000000000e+00, gap 100.0000%

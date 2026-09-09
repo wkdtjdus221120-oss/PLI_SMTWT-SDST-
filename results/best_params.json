@@ -18,5 +18,10 @@
   "DPSO": {
     "swarm_size": 50,
     "inertia_probability": 0.7
+  },
+  "ACO": {
+    "alpha": 1,
+    "beta": 2,
+    "evaporation_rate": 0.1
   }
 }
